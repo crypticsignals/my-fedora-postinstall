@@ -18,8 +18,9 @@ Gets various data ready from existing fedora install to quickly get things back 
 - ⚠️ **Also does not work with third party repos, as of yet.**. In the future, I'll add steps for third party repos.
 
 
-## 📄 `generatePackageLists.sh`
+## 📄 `installPackages.sh`
 
+- ⚠️ **Requires the hostname of the initial and target machines to be the same OR for the hostname of the initial machine to be hard coded into the code.**
 - Installs packages and flatpaks.
 - Walks you through just about every step.
 - Completely automates installs, with the option of having a confirmation/review before actual installs happen.
