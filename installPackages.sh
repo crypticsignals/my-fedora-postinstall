@@ -1,7 +1,7 @@
 #!/bin/bash
 
 HOST_NAME=$(hostname)
-# ^this line can be edited to be the one that is at the start of the files in the data directory if you wish.
+# ^this line can be edited to be the hostname that is at the start of the files in the data directory if you wish.
 DATA_DIR=$(readlink -f data/)
 
 # Disclaimer
