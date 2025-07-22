@@ -1,5 +1,6 @@
 #!/bin/bash
 HOST_NAME=$(hostname)
+mkdir -p data/
 DATA_DIR=$(readlink -f data/)
 
 # PACKAGES
