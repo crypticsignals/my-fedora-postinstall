@@ -12,9 +12,6 @@ if [[ "$answer" != "y" ]]; then
 	exit 0
 fi
 
-# TODO: Import install list path from variable?
-# Maybe logic could be: session-based variable should be set for filepaths, script would not run unless variable is set
-
 # RPM Packages
 printf "\n"
 read -p "Would you like to run (W)ith confirmation or with (N)o confirmation? " answer2

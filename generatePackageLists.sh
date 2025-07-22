@@ -3,7 +3,7 @@ HOST_NAME=$(hostname)
 DATA_DIR=$(readlink -f data/)
 
 # PACKAGES
-read -p "Add rpmfusion sources? (y/n): " answer
+read -p "Add rpmfusion repos? (y/n): " answer
 if [[ $answer == "y" || $answer == "Y" ]]; then
     echo "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" > $DATA_DIR/$HOST_NAME-installedPackages.txt
     echo "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm" >> $DATA_DIR/$HOST_NAME-installedPackages.txt
