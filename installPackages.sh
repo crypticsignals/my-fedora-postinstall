@@ -17,12 +17,12 @@ fi
 printf "\n"
 read -p "Would you like to run (W)ith confirmation or with (N)o confirmation? " answer2
 if [[ $answer2 == "w" || $answer2 == "W" ]]; then
-	sudo dnf install $(<"$DATA_DIR/$HOST_NAME-installedPackages.txt")
+	sudo dnf install --skip-unavailable $(<"$DATA_DIR/$HOST_NAME-installedPackages.txt")
 	echo "Success."
 	sleep 2
 	clear
 elif [[ $answer2 == "n" || $answer2 == "N" ]]; then
-	sudo dnf install -y $(<"$DATA_DIR/$HOST_NAME-installedPackages.txt")
+	sudo dnf install -y --skip-unavailable $(<"$DATA_DIR/$HOST_NAME-installedPackages.txt")
 	echo "Success."
 	sleep 2
 	clear
