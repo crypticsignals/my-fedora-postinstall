@@ -6,7 +6,7 @@ Gets various data ready from existing fedora install to quickly get things back 
 
 ## 📄 `.gitignore`
 
-Choosing not to sync output files just to ensure repo is clean.
+- This is here simply because I'm choosing not to sync output files just to ensure repo is clean.
 
 ## 📄 `generatePackageLists.sh`
 
@@ -15,6 +15,7 @@ Choosing not to sync output files just to ensure repo is clean.
 - Runs `flatpak list --columns=application` to generate a list of installed flatpaks to another text file. 
 - Export the generated files off of your current system, whether that's on a NAS, Cloud Storage, Syncthing Array, or even a flash drive to have an easy reinstall experience on other computers!
 - ⚠️ **Does not work with manually installed .rpm files**. For this I'd recommend putting your RPM files in the `data` directory, and then copying your entire local copy of this repo as a .zip file to your target system.
+- ⚠️ **Also does not work with third party repos, as of yet.**. In the future, I'll add steps for third party repos.
 
 
 ## 📄 `generatePackageLists.sh`
