@@ -9,4 +9,4 @@ echo "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(r
 
 
 # FLATPAKS
-flatpak list --columns=application > "$DATA_DIR/$HOST_NAME-installedFlatpaks.txt"
+flatpak list --columns=application,origin > "$DATA_DIR/$HOST_NAME-installedFlatpaks.txt"
