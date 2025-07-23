@@ -42,9 +42,22 @@ Then:
 1. Ensure that flathub is enabled as a remote. There's a few ways to do this.
 2. Run the script. There are options to run it with confirmation to see what's installed (useful for potential tampering situations) or just to run it straight through.
 
+## 📄 `setFirewall.sh`
+
+- Sets firewall configurations to work past not-secure-as-I-like defaults, with options to either set custom ports, just disable the defaults (good for laptops where you likely don't want any open ports), or to leave them alone
+- Optional SSH server configuration/enabling
+
+### Usage
+
+1. Run the script
+
+It's pretty straightforward and walks you through everything.
+
 ## Future plans
 
 - [ ] **Add specialty install instructions** (optional, will be in a seperate file) to install third party stuff like Tailscale.
+  - [x] Firewall
+  - [ ] Tailscale
 - [ ] **Add specific configurations script** for things like firewall settings.
 - [ ] **Add steps to see what third-party repos are enabled** and then install them.
 - [ ] **Step away from hostname-based package list files.** I currently do this as I have multiple machines synced to this directory locally through syncthing. Though I will say it also would prevent accidental overwriting with similar setups. There's cases to be made for either.
