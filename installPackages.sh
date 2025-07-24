@@ -15,7 +15,17 @@ fi
 
 # RPM Packages
 printf "\n"
-read -p "Would you like to run (W)ith confirmation or with (N)o confirmation? " answer2
+read -p "Before installing packages, would you like to add the rpmfusion repos? (y/n): " answer1
+if [[ $answer1 == "y" || $answer1 == "Y" ]]; then
+	echo "Adding rpmfusion repos:"
+	sudo dnf install -y "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm"
+	sudo dnf install -y "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
+	printf "\nRepos added.\n"
+else
+	printf "Skipped.\n\n"
+fi
+
+read -p "Would you like to install packages (W)ith confirmation or with (N)o confirmation? " answer2
 if [[ $answer2 == "w" || $answer2 == "W" ]]; then
 	sudo dnf install --skip-unavailable $(<"$DATA_DIR/$HOST_NAME-installedPackages.txt")
 	echo "Success."
@@ -38,8 +48,7 @@ echo "IMPORTANT: If some of your previously installed flatpaks come from flathub
 	# - Primarily, preservation of user security. I don't want to just open up a door to a random remote for no reason.
 	# - Differring steps of adding remotes per distro outside of flatpak remote-add <remote>
 	# - There's plenty of remotes out there. I pretty much only have fedora and flathub personally, but I don't want to accidentally break someone's runtime by potentially adding in disruptive code.
-
-printf "\nThis step will be a bit different. This will print out a list of your flatpaks.\nIf everything looks good, answer Y on the prompt that comes after to install everything.\nIf not, enter ctrl+c or anything other than y to stop this step.\nFrom this point, you'll need to manually edit your flatpak list if something looks incorrect.\n"
+printf "\nThis step will be a bit different. This will print out a list of your flatpaks.\nIf everything looks good, answer Y on the prompt that comes after to install everything.\n\nIf not, enter ctrl+c or anything other than y to stop this step.\nFrom this point, you'll need to manually edit your flatpak list if something looks incorrect.\n"
 
 read -n 1 -s -r -p "Press any key to continue..."
 printf "\n\n"
