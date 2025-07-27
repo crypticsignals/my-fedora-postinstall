@@ -43,6 +43,12 @@ if [[ $cssh == "y" || $cssh == "Y" ]]; then
     fi
     sudo systemctl enable sshd
     sudo systemctl restart sshd
+    printf "\nSSH configured on port $sshport. \n\n Edit settings to disable password authentication? (y/n): " editconfiganswer
+    if [[ $editconfiganswer == "y" || $editconfiganswer == "Y" ]]; then
+        sudo sed -i "s/^#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config
+        sudo systemctl restart sshd
+        printf "\nPassword authentication disabled for SSH.\n"
+    fi
 fi
 
 sudo firewall-cmd --reload
