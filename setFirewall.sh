@@ -11,6 +11,7 @@ printf "\nThere's a few options you might want.\n 1 - Clear default configs, set
 read -p "Enter your choice: " portconfigchoice
 if [[ $portconfigchoice == 1 ]]; then
     sudo firewall-cmd --remove-port=1025-65535/tcp --permanent
+    sudo firewall-cmd --remove-port=1025-65535/udp --permanent
     read -p "Enter ports you'd like to add, separated by a space: " portlist
     for i in $portlist; do
         read -p "For port $i: (T)CP, (U)DP, or (B)oth? " tcporudp
@@ -25,6 +26,7 @@ if [[ $portconfigchoice == 1 ]]; then
     done
 elif [[ $portconfigchoice == 2 ]]; then
     sudo firewall-cmd --remove-port=1025-65535/tcp --permanent
+    sudo firewall-cmd --remove-port=1025-65535/udp --permanent
 fi
 
 echo "Changes set."
